@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-&5l-rii-0%@zp3y=ck-$=333^vz5f#nu@ewy^-@cr%s%*!$8^@
 DEBUG = False
 
 ALLOWED_HOSTS = ['salty-ocean-planner.herokuapp.com']
-#ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -79,13 +79,15 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'd7s16vlhdbso6s',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'd7s16vlhdbso6s',  # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'kuiqsfnrirdzoz',
         'PASSWORD': 'e6311b95c37cb701f49fc7f8df452eb342efda363a2affb69eae272e4b0086b7',
-        'HOST': 'ec2-184-73-243-101.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',                      # Set to empty string for default.
+        'HOST': 'ec2-184-73-243-101.compute-1.amazonaws.com',
+        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '5432',  # Set to empty string for default.
     }
 }
 
@@ -124,7 +126,6 @@ USE_TZ = True
 SITE_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(SITE_ROOT, 'planner'))
 
-
 # STATIC_ROOT="static/"
 SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
@@ -134,7 +135,7 @@ STATIC_ROOT = 'static'
 STATIC_URL = 'static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
