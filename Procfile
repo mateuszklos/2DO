@@ -1,1 +1,1 @@
-web: gunicorn planner.wsgi --log-file -
+web: gunicorn salty-ocean-planner.wsgi --log-file -
