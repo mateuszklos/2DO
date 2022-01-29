@@ -1,0 +1,30 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.min.css' %}">
+    {% block favicon %}<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">{%endblock %}
+    {% block title %} {%endblock %}
+</head>
+
+<body style="background: #eeeeee;">
+    <ul class="nav flex-column shadow d-flex sidebar mobile-hid fixed-top" style="background: #34aeeb; height:100%;">
+        <li class="nav-item logo-holder">
+            <div class="text-center text-white logo py-4 mx-4"><a class="text-white text-decoration-none" id="title" href=''><strong>2DO</strong></a><a class="text-white float-right" id="sidebarToggleHolder" href="#"><i class="fas fa-bars" id="sidebarToggle"></i></a></div>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{% url 'dashboard' %}" style="/*background: var(--indigo);*/"><i class="fa fa-dashboard mx-3"></i><span class="text-nowrap mx-2">dashboard</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{% url 'archive' %}"><i class="fas fa-archive mx-3"></i><span class="text-nowrap mx-2">archive</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{% url 'statistics' %}"><i class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">statistics</span></a></li>
+        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-sliders-h mx-3"></i><span class="text-nowrap mx-2">tools</span><i class="fas fa-caret-down float-none float-lg-right fa-sm"></i></a>
+            <div class="dropdown-menu border-0 animated fadeIn"><a class="dropdown-item text-white" href="{% url 'task_api' %}"><span>REST API</span></a>
+        </li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">log out</span></a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="{% url 'index' %}" style="/*background: var(--indigo);*/"><i class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">home</span></a></li>
+        {% endif %}
+    </ul>
+{% block content %}{% endblock %}

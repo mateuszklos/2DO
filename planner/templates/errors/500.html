@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>sidebar</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.min.css' %}">
+    {% block favicon %}<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">{%endblock %}
+</head>
+
+<body style="background: #eeeeee;padding-left: 0px;">
+    <div class="container" style="margin-bottom: 2rem;">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 1rem;"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xl-6 offset-md-3 offset-lg-3 offset-xl-3" style="margin-top: 1rem;">
+                <div class="border rounded shadow-sm p-5" style="background: var(--light);margin-top: 1rem;">
+                    <h1 class="text-center">error 500</h1>
+                    <h2 class="text-center">internal server error</h2>
+                    <h4 class="text-center text-secondary">oops, something went wrong</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'script.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/3ccfcacc9f.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

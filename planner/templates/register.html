@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% block title %}<title>2DO - registration</title> {%endblock %}
+    <div class="container" style="margin-bottom: 2rem;">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 1rem;"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xl-6 offset-xl-3" style="margin-top: 1rem;">
+                <div class="border rounded shadow-sm p-5" style="background: var(--light);margin-top: 1rem;">
+                    <h1 class="text-center">create account</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.username|as_crispy_field }}
+                        {{ form.password1|as_crispy_field }}
+                        {{ form.password2|as_crispy_field }}
+                        <ul class="list-inline" style="margin-top: 1rem;">
+                        <li class="list-inline-item"><button class="btn btn-outline-primary" type="submit" style="border-color: #34aeeb;color: #34aeeb;">sign up</button></li>
+                        <li class="list-inline-item"><a href="{% url 'index' %}" style="color: #34aeeb;">go back</a></li>
+                    </ul>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'script.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/3ccfcacc9f.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% endblock %}

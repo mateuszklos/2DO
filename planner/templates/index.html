@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% block title %}<title>2DO planner</title> {%endblock %}
+    <div class="container" style="margin-bottom: 2rem;">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 1rem;"></div>
+        </div>
+        {% if messages %}
+
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+
+                {% endif %}
+        <div class="row">
+
+            <div class="col-md-6 col-xl-7 offset-xl-0" style="margin-top: 1rem;">
+                <div class="border rounded shadow-sm p-3" style="background: var(--light);margin-top: 1rem;">
+                    <h1 style="margin-top: 2rem;">plan your life with 2DO!</h1>
+                    <p class="py-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut volutpat nibh. Vivamus at justo sit amet turpis commodo imperdiet in vitae ligula. Nunc erat elit, fringilla ac nibh quis, vehicula feugiat justo. Cras vitae faucibus lacus. Mauris eu ante vel metus eleifend blandit. Vivamus quis sem eros. Sed lobortis porttitor consequat. Nam viverra&nbsp;<br><br>Nam at arcu in augue pretium ultrices. Aliquam at imperdiet felis. In maximus, lectus eu sollicitudin hendrerit, sem dui ornare erat, sed imperdiet est lorem rhoncus ligula. Fusce et enim nec justo ultrices accumsan vel eu dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-5 offset-xl-0" style="margin-top: 1rem;">
+                <div class="border rounded shadow-sm p-4" style="background: var(--light);margin-top: 1rem;">
+                    <form method="post">
+                    {% csrf_token %}
+                    <h4>sign in!</h4>
+                    {{ form.username|as_crispy_field }}
+                    {{ form.password|as_crispy_field }}
+
+                    <ul class="list-inline d-block" style="margin-top: 1rem;">
+
+                        <li class="list-inline-item"><button class="btn btn-outline-primary" type="submit" style="border-color: #34aeeb;color: #34aeeb;">log in</button></li>
+                        <li class="list-inline-item"> or <a href="{% url 'register' %}" style="color: #34aeeb;">create account</a> for free</li>
+                    </ul>
+                        </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'script.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/3ccfcacc9f.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+{% endblock %}

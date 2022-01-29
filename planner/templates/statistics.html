@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block title %}<title>2DO - statistics</title> {%endblock %}
+
+    <div class="container" style="margin-bottom: 2rem;">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 1rem;"></div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12" style="margin-top: 2rem;">
+                <h4 class="text-center text-secondary">you have finished {{completed}} of {{tasks_count}} tasks <br> that's {{percentage}}%</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-sm-4 col-xl-9" style="margin-top: 2rem;">
+                <h2>statistics&nbsp;</h2>
+            </div>
+            <div class="col-6 col-sm-8 col-xl-3" style="margin-top: 2rem;">
+                <h2 class="text-right"><a href="{% url 'export' %}"><i class="fas fa-file-excel" data-toggle="tooltip" data-placement="bottom" title="export to .xls"></i></a></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="text-secondary"><span style="color:#288bbd;">{{completed}}</span> finished</h3>
+                {% if comp|length > 0 %}
+                <label for="list_finished">latest 10</label>
+                {% endif %}
+                <ol class="text-left" id="list_finished">
+                    {% for task in comp %}
+                        <li>{{task.title}}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+            <div class="col">
+                <h3 class="text-secondary"><span style="color:#dc3545;">{{uncompleted}}</span> not finished yet</h3>
+                {% if uncomp|length > 0 %}
+                <label for="list_not_finished">latest 10</label>
+                {% endif %}
+                <ol class="text-left" id="list_not_finished">
+                    {% for task in uncomp %}
+                        <li>{{task.title}}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'script.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/3ccfcacc9f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block title %}<title>2DO - dashboard</title> {%endblock %}
+{% block favicon %}<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">{%endblock %}
+    <div class="container" style="margin-bottom: 2rem;">
+
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 2rem;"></div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12" style="margin-top: 1rem;">
+                <h2>hi, <span style="color: #369f4e;">{{ user.username }}</span></h2>
+            </div>
+            <div class="col-sm-7 col-md-5 col-lg-6 col-xl-4 offset-xl-0">
+                <form action="{% url 'search_results' %}" method="get">
+                <div class="input-group-append">
+
+                        <input name="q" type="search" class="form-control" placeholder="find task">
+                        <button class="btn btn-primary" type="submit" style="margin-left: 1rem;">search</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-xl-9" style="margin-top: 1rem;">
+                {% if messages %}
+
+                    {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+
+                {% endif %}
+                <h3>active tasks&nbsp;<a href="{% url 'addtask' %}"><i class="fas fa-plus-square" data-toggle="tooltip" data-placement="bottom" title="add new"></i></a></h3>
+            </div>
+        </div>
+        <hr/>
+        {% if object_list|length > 0 %}
+        <div class="row">
+            {% for task in object_list %}
+            <div class="col-6 col-sm-4 col-lg-3 col-xl-3" style="margin-top: 1rem;">
+
+                <div class="card">
+                    <div class="card-body text-truncate">
+                        <h5 class="card-title text-truncate" style="display:inline-block">{{ task.title }}</h5>
+                        <h6 class="text-muted card-subtitle mb-2">{{ task.created_at|date:'d.m.Y'}}</h6>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="{% url 'completetask' task.id %}"><i class="fas fa-check-square fa-2x" data-toggle="tooltip" data-placement="bottom" title="complete"></i></a></li>
+                            <li class="list-inline-item"><a href="{% url 'edittask' task.id %}"><i class="fas fa-pen-square fa-2x" data-toggle="tooltip" data-placement="bottom" title="edit"></i></a></li>
+                            <li class="list-inline-item"><a href="{% url 'deletetask' task.id %}"><i class="fas fa-minus-square fa-2x deletetask" data-toggle="tooltip" data-placement="bottom" title="delete"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h3 class="text-center text-secondary">nothing to show</h3>
+        {% endif %}
+        {% if object_list|length > 0 %}
+        <div class="pagination col" style="margin-top:1rem;">
+        <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+        </div>
+        {% endif %}
+
+
+
+
+
+    </div>
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'script.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/3ccfcacc9f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
+</body>
+
+</html>
+{% endblock %}
