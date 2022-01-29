@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-&5l-rii-0%@zp3y=ck-$=333^vz5f#nu@ewy^-@cr%s%*!$8^@
 DEBUG = False
 
 ALLOWED_HOSTS = ['salty-ocean-planner.herokuapp.com']
-#ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -78,16 +78,28 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6cenpfcp3jd41',
+        'USER': 'givsddaymcczmi',
+        'PASSWORD': '37089eea39730bf70f7e9dee5c1e727dda4e777f9586f2151d948feed425aa87',
+        'HOST': 'ec2-184-73-243-101.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
+DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,7 +136,6 @@ USE_TZ = True
 SITE_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(SITE_ROOT, 'planner'))
 
-
 # STATIC_ROOT="static/"
 SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
@@ -134,7 +145,7 @@ STATIC_ROOT = 'static'
 STATIC_URL = 'static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
