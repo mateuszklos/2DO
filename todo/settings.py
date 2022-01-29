@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&5l-rii-0%@zp3y=ck-$=333^vz5f#nu@ewy^-@cr%s%*!$8^@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['todoaplnnerapplication.herokuapp.com']
+ALLOWED_HOSTS = ['salty-ocean-planner.herokuapp.com']
 
 # Application definition
 
@@ -119,6 +119,9 @@ SITE_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(SITE_ROOT, 'planner'))
 
 STATIC_URL = 'static/'
+#STATIC_ROOT="static/"
+
+
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
