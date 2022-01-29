@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&5l-rii-0%@zp3y=ck-$=333^vz5f#nu@ewy^-@cr%s%*!$8^@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [['todoplannerapplication.herokuapp.com']]
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -133,3 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # will log you out when browser is closed
 SESSION_COOKIE_AGE = 600  # logout after 600 secs
 SESSION_SAVE_EVERY_REQUEST = True  # will prevent from logging you out after 300 seconds
+
+import dj_database_url
+
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
