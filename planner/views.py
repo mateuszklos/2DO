@@ -24,15 +24,13 @@ def index(request):
 def login(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
+
     user = auth.authenticate(username=username, password=password)
     if user is not None and user.is_active:
-        # Correct password, and the user is marked "active"
         auth.login(request, user)
-        # Redirect to a success page.
         messages.success(request, 'logged in successfully')
         return redirect('archive')
     else:
-        messages.success(request, 'wiadomosc2')
         return redirect('index')
 
 

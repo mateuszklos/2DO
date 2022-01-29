@@ -30,4 +30,3 @@ class TaskForm(ModelForm):
         widgets = {
             'title': TextInput(attrs={'autofocus': 'autofocus'})
         }
-
