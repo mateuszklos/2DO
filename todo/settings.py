@@ -119,11 +119,10 @@ SITE_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(SITE_ROOT, 'planner'))
 
 STATIC_URL = 'static/'
-#STATIC_ROOT="static/"
+# STATIC_ROOT="static/"
 
 
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = None
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
