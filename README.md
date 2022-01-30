@@ -1,5 +1,5 @@
 
- # WRITING IN PROGRESS
+ # //WRITING IN PROGRESS
 
 # 2DO planner
 
@@ -13,6 +13,10 @@ It was made in Python 3.10 (Django 4.0.1)
 
 User should create account, setting username and password
 
-# tasks
+# dashboard
 
-# 
+# export to Excel file
+User can export the data sheet containing both finished and not finished tasks.
+
+## Tasks
+# test
