@@ -1,6 +1,3 @@
-
- # //WRITING IN PROGRESS
-
 # 2DO planner
 
 
@@ -41,23 +38,38 @@ Task attributes:
 Here can be found user's active tasks. With clicking a 'plus +' icon next to the
 'active tasks' heading, user can add own task. After that, task will be
 visible underneath.
-
-
+In card with task information are located three icons - completing task, editing task's title, and deleting task.
+The latter removing selected task straight from database and it's premanent operation.
+Editing task allows user to change it's title. Completing task moving it to the archive.
 
 Tasks are paginated by 8 elements per page.
 ## archive
-archive description
+/archive is a place where completed tasks are stored. The page view is identical to the /dashboard. 
+User also can delete completed task, but cannot edit.
+Tasks in archive contain date of completion.
 
+Tasks are paginated by 8 elements per page.
 ## searching
 
-searching description
+Bot in /dashboard and /archive, there is located a search bar,
+that allows users to search within their task's titles.
 
+
+Found tasks are paginated by 8 elements per page.
 ## statistics
 
-statistics description
+/statistic is the page, where use can see their's percentage tasks completion.
+There are shown both finished and not finished tasks and it's amount.
+By clicking an icon with Excel file, there is a possibility to generate .xlsx file.
+
 
 ## export to .xls file
 User can export the data sheet containing both finished and not finished tasks.
+By clicking Excel icon, there will automatically appear the file explorer with a place to save the file.
+File contains all the tasks made by current user.
+If task is completed, it will have TRUE (in Libre Office 1) set in column is_completed.
+Otherwise, it will have FALSE value (0).
 
 ## REST Api view
-rest api description
+USing Django REST Framework, 2DO allows users to connect with another application with REST API.
+
