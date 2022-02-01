@@ -6,7 +6,7 @@ link: https://salty-ocean-planner.herokuapp.com/
 This is a CRUD application that allows users to manage their tasks.
 It was made in Python 3.10 (Django 4.0.1)
 
-Static frontend was made in Bootstrap Studio (available in Github Student Developer Pack). 2DO is fully responsive on common used screen sizes.
+Static frontend was made in Bootstrap Studio (available in Github Student Developer Pack). 2DO is fully responsive on widely used screen resolutions.
 
 ## account creation
 
