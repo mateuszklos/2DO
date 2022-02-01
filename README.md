@@ -21,6 +21,7 @@ set in registration.
 Login form is located in the landing page (index).
 Being logged in is required to get access to the content, otherwise
 2DO would display login form, and then redirect to desired page.
+User is logged out automatically after 600 secs.
 
 # tasks
 Every user has their own tasks.
